@@ -36,7 +36,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      context: '0x04d15dbd44901c479382f4b2b4bd627c1e38a682',
+      context: '0x074675fec3548cae374029bb7b981de05d271293',
       ethereum: [],
       kovan: [],
       rinkeby: [],

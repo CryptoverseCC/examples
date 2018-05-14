@@ -55,12 +55,12 @@ class App extends Component {
                 </CardContent>
                 <CardActions>
                   <Button size="small" color="primary" onClick={() => {
-                    window.location.href = `/examples/examples/${app.id}/`;
+                    window.open(`/examples/examples/${app.id}/`, '_blank');
                   }}>
                     Go to live example
                   </Button>
                   <Button size="small" color="primary" onClick={() => {
-                    window.location.href = `https://github.com/Userfeeds/examples/tree/master/examples/${app.id}/`;
+                    window.open(`https://github.com/Userfeeds/examples/tree/master/examples/${app.id}/`, '_blank');
                   }}>
                     View the code
                   </Button>

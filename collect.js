@@ -46,9 +46,9 @@ function buildExample(name) {
   const examplePath = `${__dirname}/examples/${name}`;
   const publicPath = `${__dirname}/public/examples/${name}`;
   
-  execSync('yarn', ['install'], {cwd: examplePath});
+  execSync('yarn install', {cwd: examplePath});
   
-  execSync('yarn', ['build'], {cwd: examplePath});
+  execSync('yarn build', {cwd: examplePath});
 
   let stat = fs.stat(publicPath, (err, stat) => {
     if (err) {
