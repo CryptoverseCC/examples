@@ -18,11 +18,17 @@ const images = {
 
 const styles = {
   list: {
-    display: 'inline',
+    display: 'inline-block',
   },
   img: {
     height: '100px',
     marginRight: '20px',
+    display: 'block'
+  },
+  imgLarge: {
+    height: '200px',
+    marginRight: '50px',
+    display: 'block'
   },
 };
 
@@ -30,21 +36,28 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      asset: 'ethereum',
-      context: '0xCdF8957f213b6Cad32b1C975126Ee506237b711d',
-      items: [],
+      context: '0x04d15dbd44901c479382f4b2b4bd627c1e38a682',
+      ethereum: [],
+      kovan: [],
+      rinkeby: [],
+      ropsten: [],
     };
-    this.fetch();
+    this.fetch('ethereum');
+    this.fetch('kovan');
+    this.fetch('rinkeby');
+    this.fetch('ropsten');
   }
 
-  async fetch() {
-    const API = `https://api.userfeeds.io/ranking//ranking/experimental_boost;asset=${this.state.asset};context=${
+  async fetch(asset) {
+    const API = `https://api.userfeeds.io/ranking/experimental_boost;asset=${asset};context=${
       this.state.context
     }`;
     const response = await fetch(API);
     const data = await response.json();
     const items = data.items.splice(0, MAX);
-    this.setState({ items });
+    const update = {};
+    update[asset] = items;
+    this.setState(update);
   }
 
   render() {
@@ -58,11 +71,13 @@ class App extends Component {
           available for web developers using Userfeeds Platform.
         </p>
 
+        <h1>Token: Ether (mainnet)</h1>
+
         <h2>Promoted images</h2>
         <ul>
-          {this.state.items.map((item) => (
-            <li key={item.target} style={styles.list}>
-              <img src={item.target.split(':').pop()} style={styles.img} />
+          {this.state.ethereum.map((item) => (
+            <li key={item.id} style={styles.list}>
+              <img src={images[item.id.split(':').pop()]} style={styles.imgLarge} />
             </li>
           ))}
         </ul>
@@ -73,17 +88,101 @@ class App extends Component {
             <li key={name} style={styles.list}>
               <img src={images[name]} style={styles.img} />
               <Button
-                assetAddress="0xd5cfec7b4443f7fe68f5f6fa4eec72aced241e5e"
-                claim={{
-                  target: 'claim:0x12956439435d494f98bf3a72ce569e6c42544fbdc3c88a70784e8e810aa8bdaa:0',
-                }}
-                network="rinkeby"
-                recepientAddress="0xcd73518680ab60ec2253841909d3448bc60f0665"
-                value="1"
-              />
+                claim={{claim:{
+                  target: `userfeeds.github.io:examples:boost:${name}`,
+                }}}
+                network='ethereum'
+                recepientAddress={this.state.context}
+                value="0.01"
+              >Boost</Button>
             </li>
           ))}
         </ul>
+
+        <h1>Token: Kovan (testnet)</h1>
+
+        <h2>Promoted images</h2>
+        <ul>
+          {this.state.kovan.map((item) => (
+            <li key={item.id} style={styles.list}>
+              <img src={images[item.id.split(':').pop()]} style={styles.imgLarge} />
+            </li>
+          ))}
+        </ul>
+
+        <h2>All images</h2>
+        <ul>
+          {Object.keys(images).map((name) => (
+            <li key={name} style={styles.list}>
+              <img src={images[name]} style={styles.img} />
+              <Button
+                claim={{claim:{
+                  target: `userfeeds.github.io:examples:boost:${name}`,
+                }}}
+                network='kovan'
+                recepientAddress={this.state.context}
+                value="0.01"
+              >Boost</Button>
+            </li>
+          ))}
+        </ul>
+
+        <h1>Token: Rinkeby (testnet)</h1>
+
+        <h2>Promoted images</h2>
+        <ul>
+          {this.state.rinkeby.map((item) => (
+            <li key={item.id} style={styles.list}>
+              <img src={images[item.id.split(':').pop()]} style={styles.imgLarge} />
+            </li>
+          ))}
+        </ul>
+
+        <h2>All images</h2>
+        <ul>
+          {Object.keys(images).map((name) => (
+            <li key={name} style={styles.list}>
+              <img src={images[name]} style={styles.img} />
+              <Button
+                claim={{claim:{
+                  target: `userfeeds.github.io:examples:boost:${name}`,
+                }}}
+                network='rinkeby'
+                recepientAddress={this.state.context}
+                value="0.01"
+              >Boost</Button>
+            </li>
+          ))}
+        </ul>
+
+        <h1>Token: Ropsten (testnet)</h1>
+
+        <h2>Promoted images</h2>
+        <ul>
+          {this.state.ropsten.map((item) => (
+            <li key={item.id} style={styles.list}>
+              <img src={images[item.id.split(':').pop()]} style={styles.imgLarge} />
+            </li>
+          ))}
+        </ul>
+
+        <h2>All images</h2>
+        <ul>
+          {Object.keys(images).map((name) => (
+            <li key={name} style={styles.list}>
+              <img src={images[name]} style={styles.img} />
+              <Button
+                claim={{claim:{
+                  target: `userfeeds.github.io:examples:boost:${name}`,
+                }}}
+                network='ropsten'
+                recepientAddress={this.state.context}
+                value="0.01"
+              >Boost</Button>
+            </li>
+          ))}
+        </ul>
+
 
         <p>
           Source code for this app can be found at{' '}
