@@ -1,0 +1,8 @@
+[
+  {
+    "name": "links", 
+    "title": "Links", 
+    "summary": "Links posted using transfer of given token to specific address, approved (whitelisted) by another address", 
+    "image": "/static/examples/x.png"
+  }
+]

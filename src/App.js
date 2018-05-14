@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import examples from './examples.json';
 import './App.css';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
+import Card, { CardActions, CardContent, CardTitle } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
 import GridList, { GridListTile } from 'material-ui/GridList';
 import Button from 'material-ui/Button';
 
@@ -12,15 +14,6 @@ const classes = {
   media: "",
 
 }
-
-const examples = [
-  {name: "links", title: "Links", summary: "All Links of Ethereum Asset", image: "/static/examples/x.png"},
-  {name: "second", title: "Second", summary: "Summary", image: "/static/examples/x.png"},
-  {name: "third", title: "Third", summary: "Summary", image: "/static/examples/x.png"},
-  {name: "fourth", title: "Fourth", summary: "Summary", image: "/static/examples/x.png"},
-  {name: "fifth", title: "Fifth", summary: "Summary", image: "/static/examples/x.png"},
-]
-
 
 class App extends Component {
   render() {
@@ -37,16 +30,18 @@ class App extends Component {
           {examples.map(app => (
             <GridListTile key={app.name}>
               <Card className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image={app.image}
-                  title={app.title}
-                />
                 <CardContent>
-                  {app.summary}
+                  <Typography gutterBottom variant="headline" component="h2">
+                    {app.title}
+                  </Typography>
+                  <Typography component="p">
+                    {app.summary}
+                  </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" color="primary" onClick={() => window.location = `/examples/${app.name}`}>
+                  <Button size="small" color="primary" onClick={() => {
+                    window.location.href = `/examples/examples/${app.name}/`;
+                  }}>
                     Go to live example
                   </Button>
                   <Button size="small" color="primary">

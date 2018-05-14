@@ -2,7 +2,7 @@
   "name": "links",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://userfeeds.github.io/examples/links",
+  "homepage": "http://userfeeds.github.io/examples/examples/links/",
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
