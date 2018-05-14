@@ -2,7 +2,7 @@
   "name": "boost",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://userfeeds.github.io/examples/examples/links/",
+  "homepage": "http://userfeeds.github.io/examples/examples/boost/",
   "description":
     "Boosting - one of the monetization methods that can be incorporated into almost any interface. Pay for putting elements of your interface to the most visible spot",
   "dependencies": {

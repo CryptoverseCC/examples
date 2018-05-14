@@ -3,14 +3,19 @@ const { ncp } = require('ncp').ncp;
 const fs = require('fs');
 const path = require( 'path' );
 const mkdirp = require('mkdirp');
+const rimraf = require('rimraf');
+
 
 console.log("Building Examples");
 
 const source = `${__dirname}/examples/`;
 const collectionFile = `${__dirname}/src/examples.json`;
+const publicExamplesPath = `${__dirname}/public/examples/`;
 
-
-build(source);
+rimraf(publicExamplesPath, () => { 
+  fs.mkdirSync(publicExamplesPath);
+  build(source);
+});
 
 
 function build(source) {
@@ -47,7 +52,7 @@ function buildExample(name) {
 
   let stat = fs.stat(publicPath, (err, stat) => {
     if (err) {
-      fs.mkdir(publicPath);
+      fs.mkdirSync(publicPath);
     }  
 
     ncp(`${examplePath}/build`, publicPath, function (err) {
