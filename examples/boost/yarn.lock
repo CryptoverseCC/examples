@@ -2,24 +2,24 @@
 # yarn lockfile v1
 
 
-"@userfeeds/button@^0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@userfeeds/button/-/button-0.0.15.tgz#ce3f94d9769531911a12ef94ca31a903600339b6"
+"@userfeeds/button@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@userfeeds/button/-/button-0.0.17.tgz#88019ecd50685975fae6fd735b1efbaf26cfdb16"
   dependencies:
-    "@userfeeds/web3-store" "0.0.13"
+    "@userfeeds/web3-store" "0.0.14"
     mobx "^4.1.0"
     mobx-react "^5.0.0"
     styled-components "^3.2.3"
     styled-components-ts "^0.0.8"
     web3 "1.0.0-beta.29"
 
-"@userfeeds/core@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@userfeeds/core/-/core-0.1.1.tgz#584bdb2e110b4199ff4baa282615b5a4961f6454"
+"@userfeeds/core@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@userfeeds/core/-/core-0.1.2.tgz#69d61e037b16232622738ddf2e44c8f75ecc73bc"
 
-"@userfeeds/web3-store@0.0.13":
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/@userfeeds/web3-store/-/web3-store-0.0.13.tgz#95a0f90d7b5a0d876d00e358471819a2e5a38376"
+"@userfeeds/web3-store@0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@userfeeds/web3-store/-/web3-store-0.0.14.tgz#6482147c717aa903cdeb64717977a8f799b09f71"
 
 abab@^1.0.3:
   version "1.0.4"
