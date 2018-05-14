@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@userfeeds/button@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/@userfeeds/button/-/button-0.0.14.tgz#17b9f0c0a51e68f739e8a59ccf91b118bb141296"
+"@userfeeds/button@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@userfeeds/button/-/button-0.0.15.tgz#ce3f94d9769531911a12ef94ca31a903600339b6"
   dependencies:
     "@userfeeds/web3-store" "0.0.13"
     mobx "^4.1.0"

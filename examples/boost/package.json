@@ -7,7 +7,7 @@
     "Boosting - one of the monetization methods that can be incorporated into almost any interface. Pay for putting elements of your interface to the most visible spot",
   "dependencies": {
     "@userfeeds/core": "^0.1.1",
-    "@userfeeds/button": "^0.0.14",
+    "@userfeeds/button": "^0.0.15",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4",
