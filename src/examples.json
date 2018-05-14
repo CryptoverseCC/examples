@@ -1,8 +1,1 @@
-[
-  {
-    "name": "links", 
-    "title": "Links", 
-    "summary": "Links posted using transfer of given token to specific address, approved (whitelisted) by another address", 
-    "image": "/static/examples/x.png"
-  }
-]
+[{"id":"boost","title":"boost","description":"Boosting - one of the monetization methods that can be incorporated into almost any interface. Pay for putting elements of your interface to the most visible spot"},{"id":"links","title":"links","description":"Links posted using transfer of given token to specific address, approved (whitelisted) by another address"},{"id":"boost","title":"boost","description":"Boosting - one of the monetization methods that can be incorporated into almost any interface. Pay for putting elements of your interface to the most visible spot"}]

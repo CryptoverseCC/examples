@@ -1,36 +1,74 @@
-const { spawn } = require('child_process');
+const { execSync } = require('child_process');
 const { ncp } = require('ncp').ncp;
 const fs = require('fs');
+const path = require( 'path' );
+const mkdirp = require('mkdirp');
 
 console.log("Building Examples");
 
-const build = spawn('yarn', ['build'], {cwd: __dirname + '/examples/links'});
+const source = `${__dirname}/examples/`;
+const collectionFile = `${__dirname}/src/examples.json`;
 
-build.stdout.on('data', (data) => {
-  console.log(`stdout: ${data}`);
-});
 
-build.stderr.on('data', (data) => {
-  console.log(`stderr: ${data}`);
-});
+build(source);
 
-build.on('close', (code) => {
-  console.log(`child process exited with code ${code}`);
 
-  let stat = fs.stat(__dirname + '/public/examples/links', (err, stat) => {
-    if (err) {
-      fs.mkdir(__dirname + '/public/examples/');
-      fs.mkdir(__dirname + '/public/examples/links');
-    }  
+function build(source) {
+  //Reset collection file
+  fs.writeFileSync(collectionFile, JSON.stringify([]));
 
-    ncp(__dirname + '/examples/links/build', __dirname + '/public/examples/links', function (err) {
-      if (err) {
-       return console.error(err);
-      }
-      console.log('done!');
+  // Loop through all the files in the source directory
+  fs.readdir( source, function( err, files ) {
+    if (err) { throw err; } 
+
+    files.forEach( function( name, index ) {
+      var examplePath = path.join( source, name );
+
+      fs.stat( examplePath, function( err, stat ) {
+        if (err) { throw err; }
+
+        if (stat.isDirectory()) {
+          buildExample(name);
+        }
+      });
     });
   });
+}
 
-});
+function buildExample(name) {
+  console.info(`Building ${name}`);
 
+  const examplePath = `${__dirname}/examples/${name}`;
+  const publicPath = `${__dirname}/public/examples/${name}`;
+  
+  execSync('yarn', ['install'], {cwd: examplePath});
+  
+  execSync('yarn', ['build'], {cwd: examplePath});
 
+  let stat = fs.stat(publicPath, (err, stat) => {
+    if (err) {
+      fs.mkdir(publicPath);
+    }  
+
+    ncp(`${examplePath}/build`, publicPath, function (err) {
+      if (err) { throw err; } 
+
+      let packageJson = fs.readFileSync(`${examplePath}/package.json`);
+      let packageData = JSON.parse(packageJson);
+
+      let entry = {
+        "id": name, 
+        "title": packageData.name, 
+        "description": packageData.description, 
+      }
+
+      let data = fs.readFileSync(collectionFile);
+      let entries = JSON.parse(data);
+      entries.push(entry);
+      
+      fs.writeFileSync(collectionFile, JSON.stringify(entries));
+
+      console.log(`${name} done!`);
+    });
+  });  
+}
