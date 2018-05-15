@@ -55,7 +55,7 @@ class App extends Component {
                 </CardContent>
                 <CardActions>
                   <Button size="small" color="primary" onClick={() => {
-                    window.open(`/examples/examples/${app.id}/`, '_blank');
+                    window.open(`https://userfeeds.github.io/examples/examples/${app.id}/`, '_blank');
                   }}>
                     Go to live example
                   </Button>
