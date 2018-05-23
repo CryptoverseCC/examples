@@ -1,9 +1,9 @@
 {
-  "name": "links",
+  "name": "interfaces",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://userfeeds.github.io/examples/examples/links/",
-  "description": "Links posted using transfer of given token to specific address, approved (whitelisted) by another address",
+  "homepage": "http://userfeeds.github.io/examples/examples/interfaces/",
+  "description": "Popularity ranking based on how much usage each interface is generating.",
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
