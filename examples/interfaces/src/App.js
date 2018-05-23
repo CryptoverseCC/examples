@@ -13,8 +13,7 @@ class App extends Component {
   }
 
   async fetch () {
-    const API = `http://localhost:8000/experimental_credits;type=interface`;
-    //const API = `https://api.userfeeds.io/ranking/experimental_credits;type=interface`;
+    const API = `https://api.userfeeds.io/ranking/experimental_credits;type=interface`;
     const response = await fetch(API);
     const data = await response.json();
     const items = data.items;
