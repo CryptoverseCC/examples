@@ -65,7 +65,7 @@ class App extends Component {
                     View the code
                   </Button>
                 </CardActions>
-              </Card>    
+              </Card>
             </GridListTile>
           ))}
         </GridList>
