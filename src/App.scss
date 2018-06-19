@@ -1,0 +1,53 @@
+@import "./scss/variables";
+@import '../node_modules/bulma/bulma'; 
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin embed-responsive() {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+
+  > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin retina() {
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    @content;
+  }
+}
+
+.header {
+  padding: 8rem 1.5rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: $weight-bold;
+  line-height: 1.15;
+  margin-bottom: 1.75rem;
+  color: $black;
+
+  @include mobile {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+@import './scss/navbar.scss'; 
+@import './scss/card.scss'; 
+@import './scss/footer.scss'; 
