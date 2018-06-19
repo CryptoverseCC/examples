@@ -3,13 +3,13 @@
         "id": "links",
         "title": "Links",
         "description": "Links sent to address, approved by another address.",
-        "img": "./assets/examples-links.svg"
+        "img": "assets/examples-links.svg"
     },
     {
         "id": "nft-feeds",
         "title": "NFT Feeds",
         "description": "Information attached to ERC721, talking kitties.",
-        "img": "/assets/examples-nft-feeds.svg"
+        "img": "assets/examples-nft-feeds.svg"
     },
     {
         "id": "interfaces", 
