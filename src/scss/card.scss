@@ -1,0 +1,86 @@
+.card {
+    border: none;
+    box-shadow: none;
+    text-align: center;
+    max-width: 30rem;
+    margin: 0 auto;
+
+    &:hover {
+
+      .card-image-wrap {
+        transform: translateY(-5px);
+      }
+
+      .card-content > h4 {
+        color: $info;
+      }
+    }
+
+    &.is-messaging:hover .card-image-wrap > img {
+      box-shadow: 0 35px 60px rgba(#DBD9D2, 0.4);
+    }
+
+    &.is-kit:hover .card-image-wrap > img {
+      box-shadow: 0 35px 60px rgba(#B2C0FF, 0.4);
+    }
+
+    &.is-collectibles:hover .card-image-wrap > img {
+      box-shadow: 0 35px 60px rgba(#CBE0F8, 0.4);
+    }
+
+    &.is-newsfeeds:hover .card-image-wrap > img {
+      box-shadow: 0 35px 60px rgba(#EED7D4, 0.4);
+    }
+  }
+
+  .card-image-wrap {
+    position: relative;
+    transition: all $speed $easing;
+
+    > img {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: $radius-large;
+      overflow: hidden;
+      transition: all $speed $easing;
+    }
+  }
+
+  .comingSoon {
+    background-color: $black;
+    color: $white;
+    border-radius: $radius-large*2 0 0 $radius-large*2;
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    padding: .5rem 1rem;
+    text-align: center;
+  }
+
+  .card-content {
+    font-size: 1.375rem;
+    padding: 1.5rem 0;
+
+    > h4 {
+      color: #060310;
+      font-weight: $weight-bold;
+      margin-bottom: .5rem;
+      line-height: 1.15;
+      transition: color $speed $easing;
+      font-size: 1.375rem;
+    }
+
+    > p {
+      color: #928F9B;
+
+      &.has-text-centered {
+        margin-top: 1rem;
+        font-weight: $weight-bold;
+      }
+
+      > a + a {
+        margin-left: .5em;
+      }
+    }
+  }

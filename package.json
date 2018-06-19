@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://userfeeds.github.io/examples",
   "dependencies": {
+    "bulma": "^0.7.1",
     "gh-pages": "^1.1.0",
     "material-ui": "next",
     "ncp": "^2.0.0",
