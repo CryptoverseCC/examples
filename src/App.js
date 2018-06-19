@@ -98,16 +98,16 @@ class App extends Component {
     <div className="container">
       <div className="columns is-multiline is-mobile">
         <div className="column is-2-tablet is-6-mobile is-first">
-          <h5 className="footer-title"><app-link to="Home">Userfeeds</app-link></h5>
+          <h5 className="footer-title"><a href="Home">Userfeeds</a></h5>
           <ul className="footer-links">
             <li>
-              <app-link to="Protocol">Protocol</app-link>
+              <a href="Protocol">Protocol</a>
             </li>
             <li>
-              <app-link to="About">About</app-link>
+              <a href="About">About</a>
             </li>
             <li>
-              <app-link to="Careers">Careers</app-link>
+              <a href="Careers">Careers</a>
             </li>
           </ul>
         </div>
@@ -115,19 +115,19 @@ class App extends Component {
           <h5 className="footer-title">Use cases</h5>
           <ul className="footer-links">
             <li>
-              <app-link to="Collectibles">Collectibles</app-link>
+              <a href="Collectibles">Collectibles</a>
             </li>
             <li>
-              <app-link to="Airdrop">Airdrop</app-link>
+              <a href="Airdrop">Airdrop</a>
             </li>
             <li>
-              <app-link to="Annotations">Annotations</app-link>
+              <a href="Annotations">Annotations</a>
             </li>
             <li>
-              <app-link to="Newsfeeds">Newsfeeds</app-link>
+              <a href="Newsfeeds">Newsfeeds</a>
             </li>
             <li>
-              <app-link to="Messaging">Messaging</app-link>
+              <a href="Messaging">Messaging</a>
             </li>
 
           </ul>
@@ -136,13 +136,13 @@ class App extends Component {
           <h5 className="footer-title">Developers</h5>
           <ul className="footer-links">
             <li>
-              <app-link to="https://userfeeds-platform.readthedocs-hosted.com/en/latest/">Documentation</app-link>
+              <a href="https://userfeeds-platform.readthedocs-hosted.com/en/latest/">Documentation</a>
             </li>
             <li>
-              <app-link to="Examples">Examples</app-link>
+              <a href="Examples">Examples</a>
             </li>
             <li>
-              <app-link to="http://stats.pingdom.com/fj4x6r76hd8z">API Status</app-link>
+              <a href="http://stats.pingdom.com/fj4x6r76hd8z">API Status</a>
             </li>
           </ul>
         </div>
@@ -150,23 +150,23 @@ class App extends Component {
           <h5 className="footer-title">Products</h5>
           <ul className="footer-links">
             <li>
-              <app-link to="http://linkexchange.io" className="is-target-blank">
+              <a href="http://linkexchange.io" className="is-target-blank">
                 Link Exchange <i className="rarr" aria-hidden="true"></i>
-              </app-link>
+              </a>
             </li>
             <li>
-              <app-link to="https://userfeeds.github.io/cryptopurr/">
+              <a href="https://userfeeds.github.io/cryptopurr/">
                 Purr<i className="rarr" aria-hidden="true"></i>
-              </app-link>
-              <app-link to="https://userfeeds.github.io/cryptobeep/">
+              </a>
+              <a href="https://userfeeds.github.io/cryptobeep/">
                 Beep<i className="rarr" aria-hidden="true"></i>
-              </app-link>
-              <app-link to="https://userfeeds.github.io/cryptomoji/">
+              </a>
+              <a href="https://userfeeds.github.io/cryptomoji/">
                 Moji<i className="rarr" aria-hidden="true"></i>
-              </app-link>
-              <app-link to="https://userfeeds.github.io/robohash-book/">
+              </a>
+              <a href="https://userfeeds.github.io/robohash-book/">
                 Hash<i className="rarr" aria-hidden="true"></i>
-              </app-link>
+              </a>
             </li>
           </ul>
         </div>
