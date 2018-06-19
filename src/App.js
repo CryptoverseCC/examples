@@ -73,12 +73,12 @@ class App extends Component {
                         <a href="" onClick={() => {
                           window.open(`https://userfeeds.github.io/examples/examples/${app.id}/`, '_blank');
                         }}>
-                          Live examples >
+                          Live examples &rsaquo;
                         </a>
                         <a href="" onClick={() => {
                           window.open(`https://github.com/Userfeeds/examples/tree/master/examples/${app.id}/`, '_blank');
                         }}>
-                          Code >
+                          Code &rsaquo;
                         </a>
                       </p>
                     </div>

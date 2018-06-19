@@ -81,3 +81,5 @@ yarn-error.log*
 
 # sub projects
 public/examples
+
+src/App.css
