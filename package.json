@@ -13,8 +13,8 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build-css": "node-sass-chokidar src/App.scss -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/App.scss -o src/ --watch --recursive",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "node collect.js && react-scripts build",

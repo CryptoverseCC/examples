@@ -10,7 +10,7 @@ import Button from 'material-ui/Button';
 
 const classes = {
   red: "",
-  card: "card",
+  card: "",
   media: "",
   title: {
     textTransform: "capitalize"
@@ -65,30 +65,30 @@ class App extends Component {
           <div className="container">
             <div className="columns is-multiline">
             {examples.map(app => (
-              <div className="column is-one-third">
-                  <a href="" className={classes.card}>
+              <div className={"column is-one-third is-"+app.id}>
+                  <div className={"card is-"+app.id}>
                     <div className="card-image">
                       <div className="card-image-wrap">
-                        <img src="image" alt="title" />
+                        <img src={app.img} alt={app.title} />
                       </div>
                     </div>
                     <div className="card-content">
                       <h4> {app.title} </h4>
                       <p> {app.description} </p>
                       <p className="has-text-centered">
-                        <button onClick={() => {
+                        <a href="" onClick={() => {
                           window.open(`https://userfeeds.github.io/examples/examples/${app.id}/`, '_blank');
                         }}>
-                          Go to live example
-                        </button>
-                        <button onClick={() => {
+                          Live examples >
+                        </a>
+                        <a href="" onClick={() => {
                           window.open(`https://github.com/Userfeeds/examples/tree/master/examples/${app.id}/`, '_blank');
                         }}>
-                          View the code
-                        </button>
+                          Code >
+                        </a>
                       </p>
                     </div>
-                  </a>
+                  </div>
               </div>
             ))}
             </div>

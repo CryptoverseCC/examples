@@ -1,27 +1,5 @@
+@import "./scss/variables";
 @import '../node_modules/bulma/bulma'; 
-
-$family-sans-serif: 'Work Sans', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-$family-emoji: 'Apple Color Emoji', 'Segoe UI Emoji';
-
-$navbar-height: 2.25rem;
-$navbar-wrap-height: $navbar-height + 3rem;
-
-$gap: 32px;
-$fullhd: 1152px + (2 * $gap); // default widescreen values
-
-$content-thin: 32.5rem;
-
-$radius-large: 12px;
-
-$border: #DEE3EB;
-
-$info: #2149FB;
-$black: #060310;
-
-$link: $info;
-$link-hover: darken($info, 5%);
-
-$card-content-background-color: transparent; 
 
 @mixin text-overflow() {
   overflow: hidden;
@@ -73,7 +51,7 @@ $card-content-background-color: transparent;
 .column {
   margin-bottom: 2rem;
 
-  /deep/ .card-image-wrap {
+  .card-image-wrap {
     padding-bottom: 280/330 * 100%;
     border-radius: .75rem;
 
@@ -88,7 +66,7 @@ $card-content-background-color: transparent;
     }
   }
 
-  /deep/ .card-content {
+  .card-content {
     text-align: left;
     font-size: 1.375rem;
 
@@ -99,32 +77,32 @@ $card-content-background-color: transparent;
     > .has-text-centered {
       text-align: left !important;
 
-      > a {
+      > a { 
         font-weight: normal;
       }
     }
   }
 }
 
-.column.is-boost /deep/ .card-image-wrap {
+.column.is-boost .card-image-wrap {
   background-color: #E8ECFF;
 }
 
-.column.is-governance /deep/ .card-image-wrap {
+.column.is-governance .card-image-wrap {
   background-color: #FFEAE7;
 }
 
-.column.is-links /deep/ .card-image-wrap {
+.column.is-links .card-image-wrap {
   background-color: #C7F8F9;
 }
 
-.column.is-interfaces /deep/ .card-image-wrap {
+.column.is-interfaces .card-image-wrap {
   background-color: #FAF8D4;
 }
 
-.column.is-ntf-feeds /deep/ .card-image-wrap {
+.column.is-nft-feeds .card-image-wrap {
   background-color: #FFE2E5;
-}
+} 
 
 
 @import './scss/navbar.scss'; 
