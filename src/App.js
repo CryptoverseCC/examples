@@ -58,33 +58,33 @@ class App extends Component {
           </header>
           <div className="container">
             <div className="columns is-multiline">
-            {examples.map(app => (
-              <div className={"column is-one-third is-"+app.id}>
-                  <div className={"card is-"+app.id}>
-                    <div className="card-image">
-                      <div className="card-image-wrap">
-                        <img src={app.img} alt={app.title} />
+              {examples.map(app => (
+                <div className={"column is-one-third is-"+app.id}>
+                    <div className={"card is-"+app.id}>
+                      <div className="card-image">
+                        <div className="card-image-wrap">
+                          <img src={app.img} alt={app.title} />
+                        </div>
+                      </div>
+                      <div className="card-content">
+                        <h4> {app.title} </h4>
+                        <p> {app.description} </p>
+                        <p className="has-text-centered">
+                          <a href="" onClick={() => {
+                            window.open(`https://userfeeds.github.io/examples/examples/${app.id}/`, '_blank');
+                            }}>
+                            Live examples &rsaquo;
+                          </a>
+                          <a href="" onClick={() => {
+                            window.open(`https://github.com/Userfeeds/examples/tree/master/examples/${app.id}/`, '_blank');
+                            }}>
+                            Code &rsaquo;
+                          </a>
+                        </p>
                       </div>
                     </div>
-                    <div className="card-content">
-                      <h4> {app.title} </h4>
-                      <p> {app.description} </p>
-                      <p className="has-text-centered">
-                        <a href="" onClick={() => {
-                          window.open(`https://userfeeds.github.io/examples/examples/${app.id}/`, '_blank');
-                        }}>
-                          Live examples &rsaquo;
-                        </a>
-                        <a href="" onClick={() => {
-                          window.open(`https://github.com/Userfeeds/examples/tree/master/examples/${app.id}/`, '_blank');
-                        }}>
-                          Code &rsaquo;
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-              </div>
-            ))}
+                </div>
+              ))}
             </div>
           </div>
         </main>
