@@ -15,27 +15,7 @@
   }
 }
 
-.header {
-  padding: 8rem 1.5rem;
-}
-
-.title {
-  font-size: 4rem;
-  font-weight: $weight-bold;
-  line-height: 1.15;
-  margin-bottom: 1.75rem;
-  color: $black;
-
-  @include mobile {
-    font-size: 3rem;
-  }
-}
-
-.subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 0;
-}
-
-@import './scss/navbar.scss';
-@import './scss/card.scss';
-@import './scss/footer.scss';
+@import './scss/navbar';
+@import './scss/header';
+@import './scss/card';
+@import './scss/footer';
