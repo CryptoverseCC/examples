@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Blockies from 'react-blockies';
 
 class Link extends Component {
   constructor(props) {
@@ -25,7 +26,9 @@ class Link extends Component {
           <p class="is-small">{this.props.link.summary}</p>
         </div>
         <div class="linksEach-sth">
-          <figure class="image is-rounded"></figure>
+          <figure class="image is-rounded">
+            <Blockies seed={this.props.link.author} />
+          </figure>
           <div>
             <code>{this.state.token}</code>
             <small>{this.props.link.created_at}</small>
