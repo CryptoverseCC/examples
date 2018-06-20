@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Navbar from './components/Navbar';
 import Header from './components/Header';
+import Link from './components/Link';
 
 import './App.css';
 
@@ -33,26 +34,13 @@ class App extends Component {
         <main>
           <Header title="Links" />
 
-          <p className="App-intro">
-            This interface show all links submitted with transaction of <input value={this.state.token}/> token to address <input value={this.state.recipient}/> and approved (whitelisted) by address <input value={this.state.whitelist}/>.
-            <br/>
-            The initial configuration of thi ranking is used in LinkExchange.io widget on <a href="https://www.stateofthedapps.com/">https://www.stateofthedapps.com/</a>
-          </p>
-          <table>
-            <tr>
-              <th>Score</th>
-              <th>Link</th>
-            </tr>
-            {this.state.links.map(item =>
-              <tr key={item.target}>
-                <td>{item.score}</td>
-                <td><a href={item.target}>{item.target}</a></td>
-              </tr>)}
-          </table>
-
-          <p>
-            Source code for this app can be found at <a href="https://github.com/Userfeeds/examples/tree/master/examples/links">https://github.com/Userfeeds/examples/tree/master/examples/links</a>
-          </p>
+          <section class="links">
+            <div class="container">
+              {this.state.links.map(item =>
+                <Link link={item} />
+              )}
+            </div>
+          </section>
         </main>
       </div>
     );
