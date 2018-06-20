@@ -83,3 +83,4 @@ yarn-error.log*
 public/examples
 
 src/App.css
+examples/**/App.css
