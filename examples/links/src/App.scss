@@ -3,22 +3,6 @@
 @import './scss/variables';
 @import '../node_modules/bulma/bulma';
 
-.App-header {
-  background-color: #222;
-  height: 55px;
-  padding: 15px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 @import './scss/navbar';
 @import './scss/header';
 @import './scss/footer';
