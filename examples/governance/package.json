@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://userfeeds.github.io/examples/examples/governance/",
-  "description":
-    "This interface shows various information about votes made on https://www.etherchain.org/coinvote/",
+  "title": "Governance",
+  "description": "See what are the incentives behind the votes.",
+  "img": "assets/examples-governance.svg",
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

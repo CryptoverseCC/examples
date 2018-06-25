@@ -12,7 +12,7 @@ const source = `${__dirname}/examples/`;
 const collectionFile = `${__dirname}/src/examples.json`;
 const publicExamplesPath = `${__dirname}/public/examples/`;
 
-rimraf(publicExamplesPath, () => { 
+rimraf(publicExamplesPath, () => {
   fs.mkdirSync(publicExamplesPath);
   build(source);
 });
@@ -24,7 +24,7 @@ function build(source) {
 
   // Loop through all the files in the source directory
   fs.readdir( source, function( err, files ) {
-    if (err) { throw err; } 
+    if (err) { throw err; }
 
     files.forEach( function( name, index ) {
       var examplePath = path.join( source, name );
@@ -45,35 +45,36 @@ function buildExample(name) {
 
   const examplePath = `${__dirname}/examples/${name}`;
   const publicPath = `${__dirname}/public/examples/${name}`;
-  
+
   execSync('yarn install', {cwd: examplePath});
-  
+
   execSync('yarn build', {cwd: examplePath});
 
   let stat = fs.stat(publicPath, (err, stat) => {
     if (err) {
       fs.mkdirSync(publicPath);
-    }  
+    }
 
     ncp(`${examplePath}/build`, publicPath, function (err) {
-      if (err) { throw err; } 
+      if (err) { throw err; }
 
       let packageJson = fs.readFileSync(`${examplePath}/package.json`);
       let packageData = JSON.parse(packageJson);
 
       let entry = {
-        "id": name, 
-        "title": packageData.name, 
-        "description": packageData.description, 
+        "id": name,
+        "title": packageData.title,
+        "description": packageData.description,
+        "img": packageData.img
       }
 
       let data = fs.readFileSync(collectionFile);
       let entries = JSON.parse(data);
       entries.push(entry);
-      
+
       fs.writeFileSync(collectionFile, JSON.stringify(entries));
 
       console.log(`${name} done!`);
     });
-  });  
+  });
 }

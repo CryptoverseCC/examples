@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://userfeeds.github.io/examples/examples/interfaces/",
-  "description": "Popularity ranking based on how much usage each interface is generating.",
+  "title": "Interfaces",
+  "description": "Volume - based ranking of interfaces",
+  "img": "assets/examples-interfaces.svg",
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

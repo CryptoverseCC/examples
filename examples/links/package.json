@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://userfeeds.github.io/examples/examples/links/",
-  "description": "Links posted using transfer of given token to specific address, approved (whitelisted) by another address",
+  "title": "Links",
+  "description": "Links sent to address, approved by another address.",
+  "img": "assets/examples-links.svg",
   "dependencies": {
     "bulma": "^0.7.1",
     "react": "^16.3.2",

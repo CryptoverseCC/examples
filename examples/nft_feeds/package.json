@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://userfeeds.github.io/examples/examples/nft_feeds/",
-  "description": "Information feeds coming from ERC721 avatars",
+  "title": "NTF Feeds",
+  "description": "Information attached to ERC721, talking kitties.",
+  "img": "assets/examples-nft-feeds.svg",
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

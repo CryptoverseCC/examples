@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   render() {
-    
+
     return (
       <div className="App">
         <header className="App-header">
@@ -34,15 +34,18 @@ class App extends Component {
         </p>
 
         <table>
-          <tr>
-            <th>Score</th>
-            <th>Interface</th>
-          </tr>
-          {this.state.items.map(item => 
-            <tr key={item.value}>
-              <td>{item.score}</td>
-              <td><a href={item.value}>{item.value.substr(0, 100)}</a></td>
-            </tr>)}
+          <tbody>
+            <tr>
+              <th>Score</th>
+              <th>Interface</th>
+            </tr>
+            {this.state.items.map((item, index) =>
+              <tr key={`item-${index}`}>
+                <td>{item.sequence}</td>
+                <td><a href={item.credit_value}>{item.credit_value ? item.credit_value.substr(0, 100) : ""}</a></td>
+              </tr>
+            )}
+          </tbody>
         </table>
 
         <p>
