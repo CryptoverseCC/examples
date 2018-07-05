@@ -8,8 +8,19 @@ class Item extends Component {
 
     const { author } = props.item;
     this.state = {
-      token: `${author.slice(0, 5)}...${author.slice(-3)}`
+      token: `${author.slice(0, 5)}...${author.slice(-3)}`,
+      boost: {}
     };
+
+     this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(name) {
+    return (event) => {
+      let data = {};
+      data[name] = event.target.value;
+      this.setState({boost: data});  
+    }
   }
 
   render() {
@@ -23,6 +34,7 @@ class Item extends Component {
               {this.props.item.target}
             </a>
           </p>
+          Promote with <input type="text" value={this.state.boost[this.props.item.id]} onChange={this.handleChange(this.props.item.id)} /> 
           <Button
             claim={{claim:{
               target: this.props.item.id,
@@ -30,7 +42,7 @@ class Item extends Component {
             //assetAddress={this.props.asset}
             network={this.props.network}
             recepientAddress={this.props.recipient}
-            value="1"
+            value={this.state.boost[this.props.item.id]}
           >Boost</Button>
         </div>
         <div class="itemsEach-sth">
