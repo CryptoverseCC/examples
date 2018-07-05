@@ -1,3 +1,3 @@
-## Links For `ethereum` Asset
+## Crypto Influencers list ranked by token payments
 
-This interface shows all links submitted with transaction of `ethereum` asset.
+This interface shows urls to crypto influencers pages ranked by payments using ERC20 token
