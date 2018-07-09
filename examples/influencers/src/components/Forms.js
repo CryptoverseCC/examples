@@ -1,6 +1,7 @@
 import Button from '@userfeeds/button';
 import React, { Component } from 'react';
-
+import Web3 from 'web3';
+import core from '@userfeeds/core';
 
 export class FormSingle extends Component {
   constructor(props) {
@@ -42,14 +43,14 @@ export class FormSingle extends Component {
           credits: [
             {
               type: "interface", 
-              value: "https://cryptoinfluencerslist.com"
+              value: "https://userfeeds.github.io/examples/examples/influencers/"
             }
           ]
         }}
-        network="kovan"
-        recepientAddress="0x6be450972b30891b16c8588dcbc10c8c2aef04da"
-        value="0.001"
-      >Add</Button>
+        network="http"
+        onTransactionHash={console.info}
+        onTransactionStateChange={console.info}
+      />
     </div>
   }
 }
@@ -74,10 +75,28 @@ export class FormMultiple extends Component {
     }
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     let urls = this.state.urls.split(' ');
-    console.log(urls);
-    event.preventDefault();
+
+    const web3 = new Web3(window.web3.currentProvider);
+    
+    urls.forEach(async (url) => {
+      const claimId = await core.http.sendClaim(web3, {
+        type:["about"],
+        claim:{
+          target: url,
+          about: "test"
+        },
+        credits: [
+          {
+            type: "interface", 
+            value: "https://userfeeds.github.io/examples/examples/influencers/"
+          }
+        ]
+      });
+
+      console.info(claimId);
+    });
   }
 
   render() {
