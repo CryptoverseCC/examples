@@ -2,21 +2,11 @@ $navbar-top-padding: ($navbar-wrap-height - $navbar-height) / 2;
 $border-size: 9px;
 $speed: .4s;
 
-
 .navbar {
   margin-bottom:  0;
   padding-top: $navbar-top-padding;
   padding-bottom: $navbar-top-padding;
-  background-color: $black;
-
-  &.is-active {
-    margin-bottom: 0;
-    padding-bottom: 0;
-
-    .navbar-end {
-      display: none;
-    }
-  }
+  background-color: $white;
 
   .container {
     position: static;
@@ -28,30 +18,8 @@ $speed: .4s;
   color: #848484;
 
   &:hover, &:focus, &.is-active {
-    background: none;
+    background-color: rgba(#000, .05);
     color: #979797;
-  }
-
-  &.is-active {
-    font-weight: bold;
-  }
-
-  @include desktop {
-    &.is-linkexchange {
-      border-left: 1px solid rgba(0,0,0,.2);
-      margin-left: 1rem;
-
-      > .rarr {
-        margin-left: .25em;
-      }
-
-      &:hover, &:focus {
-
-        > .rarr::before {
-          transform: rotate(0);
-        }
-      }
-    }
   }
 }
 
@@ -68,11 +36,9 @@ $speed: .4s;
   }
 }
 
-.navbar-brand, .navbar-end {
-
-  .navbar-item {
-    font-weight: $weight-bold;
-  }
+.navbar-end > .navbar-item {
+  font-weight: $weight-semibold;
+  color: #2149FB;
 }
 
 .navbar-link {
@@ -182,20 +148,5 @@ $speed: .4s;
     font-weight: $weight-normal;
     color: #928F9B;
     @include text-overflow();
-    }
   }
-
-  // COLORS
-  .is-examples {
-    .navbar {
-      background-color: $white !important;
-
-      .navbar-item {
-        color: #848484;
-
-        &:hover, &:focus, &.is-active {
-          background-color: rgba(#000, .05) !important;
-        }
-      }
-    }
-  } 
+}
