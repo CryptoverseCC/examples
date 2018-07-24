@@ -32,16 +32,24 @@ class App extends Component {
 
           <section className="interfaces">
             <div className="container">
-              <table>
-                <tbody>
+              <table className="table">
+                <thead>
                   <tr>
-                    <th>Score</th>
-                    <th>Interface</th>
+                    <th></th>
+                    <th></th>
+                    <th>Volume</th>
+                    <th>Addresses</th>
+                    <th>Claims</th>
                   </tr>
+                </thead>
+                <tbody>
                   {this.state.items.map((item, index) =>
                     <tr key={`item-${index}`}>
+                      <td>#{index}</td>
                       <td>{item.sequence}</td>
+                      <td></td>
                       <td><a href={item.credit_value}>{item.credit_value ? item.credit_value.substr(0, 100) : ""}</a></td>
+                      <td></td>
                     </tr>
                   )}
                 </tbody>
