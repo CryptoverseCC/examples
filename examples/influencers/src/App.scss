@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700');
+
+@import './scss/variables';
+@import '../node_modules/bulma/bulma';
+
+@import './scss/navbar';
+@import './scss/header';
+@import './scss/link';
+
+.items {
+  padding-bottom: 8rem;
+}
