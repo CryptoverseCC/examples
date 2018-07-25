@@ -5,3 +5,28 @@
 
 @import './scss/navbar';
 @import './scss/header';
+
+.governance-section {
+
+  & + & {
+    margin-top: 5rem;
+  }
+}
+
+.governance-title {
+  font-size: 2rem;
+  color: #060310;
+  font-weight: $weight-bold;
+  margin-bottom: 1.5rem;
+
+  + .governance-subtitle {
+    margin-top: -1.25rem;
+  }
+}
+
+.governance-subtitle {
+  font-size: 1.5rem;
+  color: #928F9B;
+  margin-bottom: 1.5rem;
+  max-width: 32rem;
+}
