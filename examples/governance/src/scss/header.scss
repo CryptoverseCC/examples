@@ -1,0 +1,20 @@
+.header {
+  padding: 8rem 1.5rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: $weight-bold;
+  line-height: 1.15;
+  margin-bottom: 1.75rem;
+  color: $black;
+
+  @include mobile {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
