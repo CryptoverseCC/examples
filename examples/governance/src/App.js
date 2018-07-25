@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+
+import Navbar from './components/Navbar';
+import Header from './components/Header';
+
 import './App.css';
 
 const VOTE = 35;
@@ -35,7 +39,7 @@ class App extends Component {
       age: {}
     };
   }
-  
+
   componentDidMount() {
     this.fetch();
   }
@@ -85,23 +89,23 @@ class App extends Component {
     let age = {};
 
     Object.keys(groups).map(answer => {
-      transactions[answer] = (transactions[answer] || 0) + votes.reduce((acc, cv) => { 
+      transactions[answer] = (transactions[answer] || 0) + votes.reduce((acc, cv) => {
         let val = (cv.vote === answer ? (addrData[cv.address] || {transfers: 0}).transfers || 0 : 0);
         return acc + val;
       }, 0);
 
-      hodl[answer] = (hodl[answer] || 0) + votes.reduce((acc, cv) => { 
+      hodl[answer] = (hodl[answer] || 0) + votes.reduce((acc, cv) => {
         let val = (cv.vote === answer ? (addrData[cv.address] || {hodl: 0}).hodl || 0 : 0);
         return acc + val;
       }, 0);
 
-      assets[answer] = (assets[answer] || 0) + votes.reduce((acc, cv) => { 
+      assets[answer] = (assets[answer] || 0) + votes.reduce((acc, cv) => {
         let val = (cv.vote === answer ? (addrData[cv.address] || {assets: []}).assets.length || 0 : 0);
         return acc + val;
       }, 0);
 
       let date = new Date();
-      age[answer] = (age[answer] || 0) + votes.reduce((acc, cv) => { 
+      age[answer] = (age[answer] || 0) + votes.reduce((acc, cv) => {
         let val = (cv.vote === answer ? (addrData[cv.address] || {since: 0}).since || 0 : 0);
         return acc + ((date - val) / 1000 / 60 / 60 / 24);
       }, 0);
@@ -115,74 +119,73 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to Governance Enhanced (Work In Progress)</h1>
-          <p className="App-intro">
-            This app assumes data on etherchain.org are valid. <br/>
-            Please go to <a href="https://etherchain.org/">https://etherchain.org/</a> to vote.
-          </p>
-        </header>
-        {
-          //<Votes votes={this.state.votes}/>
-        }
+        <Navbar />
+        <main>
+          <Header title="Governance" subtitle="See what are the incentives behind the votes submitted" />
 
-        <h2>Perspectives on VOTE #{VOTE}</h2>
-        <a href="https://www.etherchain.org/coinvote/poll/{VOTE}">https://www.etherchain.org/coinvote/poll/{VOTE}</a>
+          <div className="container">
+            {
+              //<Votes votes={this.state.votes}/>
+            }
 
-        <h3>Number of Votes</h3>
-        <ul>
-          {Object.keys(this.state.groups).map(answer => <li key={answer}>{answer}: {this.state.groups[answer].length}</li>)}
-        </ul>
+            <h2>Perspectives on VOTE #{VOTE}</h2>
+            <a href="https://www.etherchain.org/coinvote/poll/{VOTE}">https://www.etherchain.org/coinvote/poll/{VOTE}</a>
 
-        <h3>Transactions</h3>
-        <p>
-          Number of transaction made by addresses voting for given answer
+            <h3>Number of Votes</h3>
+            <ul>
+              {Object.keys(this.state.groups).map(answer => <li key={answer}>{answer}: {this.state.groups[answer].length}</li>)}
+            </ul>
 
-          <br/>* This score is incomplete as our DB is missing part of oldest blocks
-        </p>
-        <ul>
-          {Object.keys(this.state.transactions).map(answer => <li key={answer}>{answer}: {this.state.transactions[answer]}</li>)}
-        </ul>
+            <h3>Transactions</h3>
+            <p>
+              Number of transaction made by addresses voting for given answer
 
-        <h3>HODL score*</h3>
-        <p>
-          Each address is assigned score that corresponds to how much token it was wolding through time.
-          Think https://en.wikipedia.org/wiki/Integral of amount of token through time.
+              <br/>* This score is incomplete as our DB is missing part of oldest blocks
+            </p>
+            <ul>
+              {Object.keys(this.state.transactions).map(answer => <li key={answer}>{answer}: {this.state.transactions[answer]}</li>)}
+            </ul>
 
-          <br/>* This score is incomplete as our DB is missing part of oldest blocks
-        </p>
-        <ul>
-          {Object.keys(this.state.hodl).map(answer => <li key={answer}>{answer}: {this.state.hodl[answer]}</li>)}
-        </ul>
+            <h3>HODL score*</h3>
+            <p>
+              Each address is assigned score that corresponds to how much token it was wolding through time.
+              Think https://en.wikipedia.org/wiki/Integral of amount of token through time.
 
-        <h3>Assets*</h3>
-        <p>
-          Each address is assigned a number that represents number of all assets this address ever interacted with.
-          Number of contracts on Ethereum and all of it's testnets.
-          
-          <br/>* We hold Ether and all test Ether (kovan, rinkeby, ropsten) as assets so this score also includes them.
-        </p>
-        <ul>
-          {Object.keys(this.state.assets).map(answer => <li key={answer}>{answer}: {this.state.assets[answer]}</li>)}
-        </ul>
+              <br/>* This score is incomplete as our DB is missing part of oldest blocks
+            </p>
+            <ul>
+              {Object.keys(this.state.hodl).map(answer => <li key={answer}>{answer}: {this.state.hodl[answer]}</li>)}
+            </ul>
 
-        <h3>Age*</h3>
-        <p>
-          Each address is assigned a number that represents time since first transaction.
-          Score is a sum of those, providing cumulative age of voters.
+            <h3>Assets*</h3>
+            <p>
+              Each address is assigned a number that represents number of all assets this address ever interacted with.
+              Number of contracts on Ethereum and all of it's testnets.
 
-          <br/>* This score is incomplete as our DB is missing part of oldest blocks
-        </p>
-        <ul>
-          {Object.keys(this.state.age).map(answer => <li key={answer}>{answer}: {parseInt(this.state.age[answer], 10)} days</li>)}
-        </ul>
+              <br/>* We hold Ether and all test Ether (kovan, rinkeby, ropsten) as assets so this score also includes them.
+            </p>
+            <ul>
+              {Object.keys(this.state.assets).map(answer => <li key={answer}>{answer}: {this.state.assets[answer]}</li>)}
+            </ul>
 
-        <h3>Other</h3>
-        <p>This list is by no means complete. Those are just first things that came to our minds</p>
+            <h3>Age*</h3>
+            <p>
+              Each address is assigned a number that represents time since first transaction.
+              Score is a sum of those, providing cumulative age of voters.
 
-        <h3>Mixed</h3>
-        <p>It's possible to mix all of above metrics to create combined perspective</p>
-        
+              <br/>* This score is incomplete as our DB is missing part of oldest blocks
+            </p>
+            <ul>
+              {Object.keys(this.state.age).map(answer => <li key={answer}>{answer}: {parseInt(this.state.age[answer], 10)} days</li>)}
+            </ul>
+
+            <h3>Other</h3>
+            <p>This list is by no means complete. Those are just first things that came to our minds</p>
+
+            <h3>Mixed</h3>
+            <p>It's possible to mix all of above metrics to create combined perspective</p>
+          </div>
+        </main>
       </div>
     );
   }

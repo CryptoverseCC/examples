@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import Button from '@userfeeds/button';
+
+import Navbar from './components/Navbar';
+import Header from './components/Header';
+
 import './App.css';
 
 const MAX = 3;
@@ -99,26 +103,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to Userfeeds platform Example Interface.</h1>
-        </header>
-        <p className="App-intro">
-          This is sample gallery app with promoted images bar on top. It ilustrates simplest monetization model
-          available for web developers using Userfeeds Platform.
-        </p>
+        <Navbar />
+        <main>
+          <Header title="Boost" subtitle="Simplest monetization model available for web developers using Userfeeds Platform. Pay to be more visible." />
 
-        {this.gallery("Ether (mainnet)", "ethereum", "ethereum", null)}
-        {this.gallery("Bentyn (ERC20 on mainnet 0x108c05cac356d93b351375434101cfd3e14f7e44)", "bentyn", "ethereum", "0x108c05cac356d93b351375434101cfd3e14f7e44")}
-        {this.gallery("Kovan (testnet)", "kovan", "kovan", null)}
-        {this.gallery("Rinkeby (testnet)", "rinkeby", "rinkeby", null)}
-        {this.gallery("Ropsten (testnet)", "ropsten", "ropsten", null)}
+          <div className="container">
+            {this.gallery("Ether (mainnet)", "ethereum", "ethereum", null)}
+            {this.gallery("Bentyn (ERC20 on mainnet 0x108c05cac356d93b351375434101cfd3e14f7e44)", "bentyn", "ethereum", "0x108c05cac356d93b351375434101cfd3e14f7e44")}
+            {this.gallery("Kovan (testnet)", "kovan", "kovan", null)}
+            {this.gallery("Rinkeby (testnet)", "rinkeby", "rinkeby", null)}
+            {this.gallery("Ropsten (testnet)", "ropsten", "ropsten", null)}
 
-        <p>
-          Source code for this app can be found at{' '}
-          <a href="https://github.com/Userfeeds/examples/tree/master/examples/boost">
-            https://github.com/Userfeeds/examples/tree/master/examples/boost
-          </a>
-        </p>
+            <p>
+              Source code for this app can be found at{' '}
+              <a href="https://github.com/Userfeeds/examples/tree/master/examples/boost">
+                https://github.com/Userfeeds/examples/tree/master/examples/boost
+              </a>
+            </p>
+          </div>
+        </main>
       </div>
     );
   }
