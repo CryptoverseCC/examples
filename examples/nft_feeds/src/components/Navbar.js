@@ -10,7 +10,9 @@ class Navbar extends Component {
               <a href="https://userfeeds.io/examples" className="navbar-item">&larr; See all examples</a>
             </div>
             <div className="navbar-end">
-              <a href="https://userfeeds.io/collectibles" className="navbar-item">See it on Github</a>
+              <a href="https://github.com/Userfeeds/examples/tree/master/examples/nft_feeds" target="_blank" rel="noopener noreferrer" className="navbar-item">
+                See it on Github
+              </a>
             </div>
           </div>
         </div>

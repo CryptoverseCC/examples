@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://userfeeds.github.io/examples/examples/influencers/",
+  "title": "Influencers",
   "description": "Crypto Influencers by Token X",
+  "img": "assets/examples-influencers.svg",
   "dependencies": {
     "@userfeeds/button": "^0.0.18",
     "@userfeeds/core": "^0.1.2",
