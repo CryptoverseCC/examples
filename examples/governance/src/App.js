@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 
 import Navbar from './components/Navbar';
 import Header from './components/Header';
+import DoughnutChart from './components/Doughnut';
+import BarChart from './components/Bars';
 
 import './App.css';
 
 const VOTE = 35;
 const VOTE_API = `https://cors-anywhere.herokuapp.com/https://www.etherchain.org/coinvote/poll/${VOTE}/data/json`;
 const USERFEEDS_API = `https://api.userfeeds.io/ranking/`;
-
 
 const Votes = function Votes (params) {
   console.log(params.votes);
@@ -113,8 +114,6 @@ class App extends Component {
       }, 0);
     })
 
-    console.log(transactions);
-
     this.setState({votes, groups, transactions, hodl, assets, age});
   }
 
@@ -132,11 +131,12 @@ class App extends Component {
 
             <section className="governance-section">
               <h2 className="governance-title">Number of Votes</h2>
-              <p className="governance-subtitle"><a href="https://www.etherchain.org/coinvote/poll/{VOTE}">https://www.etherchain.org</a></p>
+              <p className="governance-subtitle">
+                <a href="https://www.etherchain.org/coinvote/poll/{VOTE}">https://www.etherchain.org</a>
+              </p>
 
-              <ul>
-                {Object.keys(this.state.groups).map(answer => <li key={answer}>{answer}: {this.state.groups[answer].length}</li>)}
-              </ul>
+              <DoughnutChart data={ Object.keys(this.state.groups).map(answer => this.state.groups[answer].length) }
+                             labels={ Object.keys(this.state.groups) } />
             </section>
 
             <section className="governance-section">
@@ -145,9 +145,8 @@ class App extends Component {
                 Number of transaction made by addresses voting for given answer
               </p>
 
-              <ul>
-                {Object.keys(this.state.transactions).map(answer => <li key={answer}>{answer}: {this.state.transactions[answer]}</li>)}
-              </ul>
+              <BarChart data={ Object.values(this.state.transactions) }
+                        labels={ Object.keys(this.state.transactions) } />
             </section>
 
             <section className="governance-section">
@@ -156,9 +155,8 @@ class App extends Component {
                 Number of all assets this address ever interacted with. Number of contracts on Ethereum and all of it's testnets.
               </p>
 
-              <ul>
-                {Object.keys(this.state.assets).map(answer => <li key={answer}>{answer}: {this.state.assets[answer]}</li>)}
-              </ul>
+              <DoughnutChart data={ Object.keys(this.state.assets).map(answer => this.state.assets[answer]) }
+                             labels={ Object.keys(this.state.assets) } />
             </section>
 
             <section className="governance-section">
@@ -167,9 +165,9 @@ class App extends Component {
                 Each address is assigned a number that represents time since first transaction. Score is a cumulative age of voters.
               </p>
 
-              <ul>
-                {Object.keys(this.state.age).map(answer => <li key={answer}>{answer}: {parseInt(this.state.age[answer], 10)} days</li>)}
-              </ul>
+              <DoughnutChart data={ Object.keys(this.state.age).map(answer => parseInt(this.state.age[answer], 10)) }
+                             labels={ Object.keys(this.state.age) }
+                             custom="days" />
             </section>
           </div>
         </main>

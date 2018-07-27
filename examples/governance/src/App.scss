@@ -30,3 +30,31 @@
   margin-bottom: 1.5rem;
   max-width: 32rem;
 }
+
+.governance-chart {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.governance-legend {
+  list-style: none;
+  font-weight: bold;
+  margin-left: 4rem;
+
+  > li {
+    display: flex;
+    align-items: center;
+
+    + li {
+      margin-top: .5rem;
+    }
+  }
+
+  &-badge {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 3px;
+    margin-right: 1rem;
+  }
+}
