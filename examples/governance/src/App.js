@@ -11,21 +11,6 @@ const VOTE = 35;
 const VOTE_API = `https://cors-anywhere.herokuapp.com/https://www.etherchain.org/coinvote/poll/${VOTE}/data/json`;
 const USERFEEDS_API = `https://api.userfeeds.io/ranking/`;
 
-const Votes = function Votes (params) {
-  console.log(params.votes);
-  let votes = params.votes.map(item => {
-    item = JSON.parse(item.signature)
-    return <li key={item.signature}>
-      {item.address} - {item.msg}
-    </li>;
-  });
-
-  return <ul>
-    {votes}
-  </ul>
-}
-
-
 class App extends Component {
 
   constructor() {
@@ -91,7 +76,7 @@ class App extends Component {
     let assets = {};
     let age = {};
 
-    Object.keys(groups).map(answer => {
+    Object.keys(groups).forEach(answer => {
       transactions[answer] = (transactions[answer] || 0) + votes.reduce((acc, cv) => {
         let val = (cv.vote === answer ? (addrData[cv.address] || {transfers: 0}).transfers || 0 : 0);
         return acc + val;
