@@ -1,40 +1,12 @@
 import React, { Component } from 'react';
-import Button from '@userfeeds/button';
 
 import Navbar from './components/Navbar';
 import Header from './components/Header';
+import Gallery from './components/Gallery';
 
 import './App.css';
 
 const MAX = 3;
-
-const images = {
-  acid2: 'acid2.png',
-  bitcoin: 'bitcoin.svg',
-  ethereum: 'ethereum.svg',
-  hawaii: 'hawaii.jpg',
-  monnosuke: 'monnosuke.jpg',
-  plane: 'plane.jpg',
-  river: 'river.jpg',
-  travel: 'travel.jpg',
-  udaipur: 'udaipur.jpg',
-};
-
-const styles = {
-  list: {
-    display: 'inline-block',
-  },
-  img: {
-    height: '100px',
-    marginRight: '20px',
-    display: 'block'
-  },
-  imgLarge: {
-    height: '200px',
-    marginRight: '50px',
-    display: 'block'
-  },
-};
 
 class App extends Component {
   constructor() {
@@ -47,6 +19,7 @@ class App extends Component {
       rinkeby: [],
       ropsten: [],
     };
+
     this.fetch('ethereum');
     this.fetch('ethereum:0x108c05cac356d93b351375434101cfd3e14f7e44');
     this.fetch('kovan');
@@ -58,46 +31,14 @@ class App extends Component {
     const API = `https://api.userfeeds.io/ranking/experimental_boost;asset=${asset};context=${
       this.state.context
     }`;
+
     const response = await fetch(API);
     const data = await response.json();
     const items = data.items.splice(0, MAX);
     const update = {};
     update[asset] = items;
+
     this.setState(update);
-  }
-
-  gallery(title, name, network, asset) {
-    return <div>
-      <h1>Token: {title}</h1>
-
-      <h2>Promoted images</h2>
-      <ul>
-        {this.state[name].map((item) => (
-          <li key={item.id} style={styles.list}>
-            <img src={images[item.id.split(':').pop()]} style={styles.imgLarge} />
-          </li>
-        ))}
-      </ul>
-
-      <h2>All images</h2>
-      <ul>
-        {Object.keys(images).map((name) => (
-          <li key={name} style={styles.list}>
-            <img src={images[name]} style={styles.img} />
-            <Button
-              claim={{claim:{
-                target: `userfeeds.github.io:examples:boost:${name}`,
-              }}}
-              assetAddress={asset}
-              network={network}
-              recepientAddress={this.state.context}
-              value="0.01"
-            >Boost</Button>
-          </li>
-        ))}
-      </ul>
-      <hr/>
-    </div>
   }
 
   render() {
@@ -108,18 +49,42 @@ class App extends Component {
           <Header title="Boost" subtitle="Simplest monetization model available for web developers using Userfeeds Platform. Pay to be more visible." />
 
           <div className="container">
-            {this.gallery("Ether (mainnet)", "ethereum", "ethereum", null)}
-            {this.gallery("Bentyn (ERC20 on mainnet 0x108c05cac356d93b351375434101cfd3e14f7e44)", "bentyn", "ethereum", "0x108c05cac356d93b351375434101cfd3e14f7e44")}
-            {this.gallery("Kovan (testnet)", "kovan", "kovan", null)}
-            {this.gallery("Rinkeby (testnet)", "rinkeby", "rinkeby", null)}
-            {this.gallery("Ropsten (testnet)", "ropsten", "ropsten", null)}
+            <div className="boost-overflow">
+              <Gallery title="Etherneum"
+                       subtitle="Mainnet"
+                       name="ethereum"
+                       network="ethereum"
+                       data={ this.state.bentyn }
+                       asset={ null } />
 
-            <p>
-              Source code for this app can be found at{' '}
-              <a href="https://github.com/Userfeeds/examples/tree/master/examples/boost">
-                https://github.com/Userfeeds/examples/tree/master/examples/boost
-              </a>
-            </p>
+              <Gallery title="Etherneum"
+                       subtitle="Kovan"
+                       name="kovan"
+                       network="kovan"
+                       data={ this.state.kovan }
+                       asset={ null } />
+
+              <Gallery title="Etherneum"
+                       subtitle="Rinkeby"
+                       name="rinkeby"
+                       network="rinkeby"
+                       data={ this.state.rinkeby }
+                       asset={ null } />
+
+              <Gallery title="Etherneum"
+                       subtitle="Ropsten"
+                       name="ropsten"
+                       network="ropsten"
+                       data={ this.state.ropsten }
+                       asset={ null } />
+
+              <Gallery title="Bentyn (ERC20 on mainnet 0x108c05cac356d93b351375434101cfd3e14f7e44)"
+                       subtitle="(mainnet)"
+                       name="bentyn"
+                       network="ethereum"
+                       data={ this.state.ethereum }
+                       asset="0x108c05cac356d93b351375434101cfd3e14f7e44" />
+            </div>
           </div>
         </main>
       </div>

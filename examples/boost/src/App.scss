@@ -5,3 +5,74 @@
 
 @import './scss/navbar';
 @import './scss/header';
+
+.boost-overflow {
+  overflow: hidden;
+  overflow-x: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.boost-col {
+  width: 24rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  & + & {
+    border-left: 1px solid #ddd;
+  }
+}
+
+.boost-title {
+  font-size: 2rem;
+  color: #060310;
+  font-weight: $weight-bold;
+  margin-bottom: 1.5rem;
+  line-height: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  + .boost-subtitle {
+    margin-top: -1.25rem;
+  }
+}
+
+.boost-subtitle {
+  font-size: 1.5rem;
+  color: #928F9B;
+  margin-bottom: 1.5rem;
+}
+
+.boost-item {
+  position: relative;
+  padding-left: 5rem;
+  display: flex;
+  justify-content: flex-end;
+
+  & + & {
+    margin-top: 1.5rem;
+  }
+
+  > figure {
+    width: 10rem;
+    height: 8.35rem;
+    overflow: hidden;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border-radius: 1rem;
+  }
+
+  > button {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
