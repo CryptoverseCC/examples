@@ -19,3 +19,34 @@
 @import './scss/header';
 
 @import './scss/footer';
+
+.table {
+  font-size: 1.5rem;
+
+  th, td {
+    vertical-align: middle;
+  }
+
+  thead th {
+    color: #928F9B;
+    border: 0;
+  }
+
+  tbody td {
+    border-color: #EFF2F5;
+  }
+
+  .interface-index {
+    font-size: 1.375rem;
+  }
+
+  .interface-name {
+    font-size: 2rem;
+    font-weight: $weight-bold;
+  }
+
+  .interface-number {
+    font-weight: $weight-bold;
+    text-align: right;
+  }
+}

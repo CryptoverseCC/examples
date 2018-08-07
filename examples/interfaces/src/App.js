@@ -60,16 +60,16 @@ class App extends Component {
                   <tr>
                     <th></th>
                     <th></th>
-                    <th>Claims</th>
+                    <th className="interface-number">Claims</th>
                   </tr>
                 </thead>
                 <tbody>
                   {console.log("Claims", this.state.claims)}
                   {this.state.claims.map((claim, index) =>
                     <tr key={`item-${index}`}>
-                      <td>#{ index+1 }</td>
-                      <td>{claim.name}</td>
-                      <td>{claim.number}</td>
+                      <td className="interface-index">#{ index+1 }</td>
+                      <td className="interface-name">{claim.name}</td>
+                      <td className="interface-number">{claim.number}</td>
                     </tr>
                   )}
                 </tbody>
