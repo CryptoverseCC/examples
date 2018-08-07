@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 
 import Navbar from './components/Navbar';
 import Header from './components/Header';
@@ -9,7 +10,7 @@ class App extends Component {
   constructor () {
     super();
     this.state = {
-      items: []
+      claims: []
     };
     this.fetch();
   }
@@ -18,8 +19,30 @@ class App extends Component {
     const API = `https://api.userfeeds.io/ranking/experimental_credits;type=interface`;
     const response = await fetch(API);
     const data = await response.json();
-    const items = data.items;
-    this.setState({items});
+    const claims = [];
+
+    const interfaces = _.groupBy(data.items, v => {
+      let item;
+
+      try {
+        item = new URL(v.credit_value).host;
+      } catch (error) {
+        item = v.credit_value;
+      }
+
+      return item;
+    });
+
+    _.forOwn(interfaces, (item, key) => {
+      const claim = {
+        name: key,
+        number: item.length
+      };
+
+      claims.push(claim);
+    });
+
+    this.setState({claims});
   }
 
   render() {
@@ -32,24 +55,21 @@ class App extends Component {
 
           <section className="interfaces">
             <div className="container">
-              <table className="table">
+              <table className="table is-hoverable is-fullwidth">
                 <thead>
                   <tr>
                     <th></th>
                     <th></th>
-                    <th>Volume</th>
-                    <th>Addresses</th>
                     <th>Claims</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.items.map((item, index) =>
+                  {console.log("Claims", this.state.claims)}
+                  {this.state.claims.map((claim, index) =>
                     <tr key={`item-${index}`}>
-                      <td>#{index}</td>
-                      <td>{item.sequence}</td>
-                      <td></td>
-                      <td><a href={item.credit_value}>{item.credit_value ? item.credit_value.substr(0, 100) : ""}</a></td>
-                      <td></td>
+                      <td>#{ index+1 }</td>
+                      <td>{claim.name}</td>
+                      <td>{claim.number}</td>
                     </tr>
                   )}
                 </tbody>
